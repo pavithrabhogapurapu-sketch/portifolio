@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Bhogapurapu Pavithra, an aspiring Frontend Developer specializing in HTML, CSS and JavaScript.">
     <title>Bhogapurapu Pavithra | Portfolio</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
@@ -17,287 +17,217 @@
 
 <body>
 
+    <a class="skip-link" href="#home">Skip to main content</a>
+
     <!-- ================= NAVIGATION ================= -->
 
-  <nav>
-    <div class="logo">
-        Bhogapurapu Pavithra
-    </div>
-
-    <ul id="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-</ul>
-
-<div class="nav-right">
-
-    <div class="menu-toggle" id="menu-toggle">
-        ☰
-    </div>
-
-    <button id="theme-toggle">
-        🌙
-    </button>
-
-</div>
-
-    <!-- ================= HERO ================= -->
-
-    <section class="hero" id="home">
-
-        <div class="hero-text">
-
-            <h3>Hello, I'm</h3>
-
-            <h1>Bhogapurapu Pavithra</h1>
-
-            <h2><span id="typing-text"></span><span class="cursor">|</span></h2>
-
-            <p>
-                I love creating beautiful, responsive websites using HTML,
-                CSS and JavaScript. My goal is to become a professional
-                Frontend Developer and build amazing web experiences.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#contact" class="hire-btn">
-                    Hire Me
-                </a>
-
-                <a href="resume.pdf" download class="resume-btn">
-                    Download Resume
-                </a>
-
+    <header>
+        <nav>
+            <div class="logo">
+                Bhogapurapu Pavithra
             </div>
 
-        </div>
+            <ul id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
-        <div class="hero-image">
+            <div class="nav-right">
 
-            <img src="images/profile.jpg" alt="Bhogapurapu Pavithra">
+                <button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    🌙
+                </button>
 
-        </div>
+                <button id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                    <span class="menu-icon">☰</span>
+                </button>
 
-    </section>
+            </div>
+        </nav>
+    </header>
 
-    <!-- ================= ABOUT ================= -->
+    <main>
 
-    <section class="about hidden" id="about">
+        <!-- ================= HERO ================= -->
 
-        <h2>About Me</h2>
+        <section class="hero" id="home">
 
-        <p>
+            <div class="hero-text">
 
-            Hello! I'm <strong>Bhogapurapu Pavithra</strong>, an enthusiastic
-            Web Development student passionate about building modern,
-            responsive and user-friendly websites.
+                <h3>Hello, I'm</h3>
 
-            I enjoy learning new technologies and improving my frontend
-            development skills every day.
+                <h1>Bhogapurapu Pavithra</h1>
 
-        </p>
-
-    </section>
-
-    <!-- ================= SKILLS ================= -->
-
-    <section class="skills hidden" id="skills">
-
-        <h2>My Skills</h2>
-
-        <div class="skills-container">
-
-            <div class="skill-card">HTML5</div>
-
-            <div class="skill-card">CSS3</div>
-
-            <div class="skill-card">JavaScript</div>
-
-            <div class="skill-card">Python</div>
-
-            <div class="skill-card">Git & GitHub</div>
-
-            <div class="skill-card">Responsive Design</div>
-
-        </div>
-
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-
-    <section class="projects" id="projects">
-
-        <h2>My Projects</h2>
-
-        <div class="projects-container">
-
-            <div class="project-card">
-
-                <h3>🎯 Goal Tracker</h3>
+                <h2><span id="typing-text"></span><span class="cursor" aria-hidden="true">|</span></h2>
 
                 <p>
-
-                    A Goal Tracker website built using HTML, CSS and JavaScript.
-                    Users can add and manage their daily goals easily.
-
+                    I love creating beautiful, responsive websites using HTML,
+                    CSS and JavaScript. My goal is to become a professional
+                    Frontend Developer and build amazing web experiences.
                 </p>
 
-                <a href="index.html" class="project-btn">View Project</a>
+                <div class="hero-buttons">
+
+                    <a href="#contact" class="hire-btn">
+                        Hire Me
+                    </a>
+
+                    <a href="resume.pdf" download class="resume-btn">
+                        Download Resume
+                    </a>
+
+                </div>
 
             </div>
 
-            <div class="project-card">
+            <div class="hero-image">
+                <img src="images/profile.jpg" alt="Portrait of Bhogapurapu Pavithra">
+            </div>
 
+        </section>
 
-                <h3>🌐 Personal Portfolio</h3>
+        <!-- ================= ABOUT ================= -->
+
+        <section class="about hidden" id="about">
+
+            <h2>About Me</h2>
+
+            <p>
+                Hello! I'm <strong>Bhogapurapu Pavithra</strong>, an enthusiastic
+                Web Development student passionate about building modern,
+                responsive and user-friendly websites.
+                I enjoy learning new technologies and improving my frontend
+                development skills every day.
+            </p>
+
+        </section>
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="skills hidden" id="skills">
+
+            <h2>My Skills</h2>
+
+            <div class="skills-container">
+                <div class="skill-card">HTML5</div>
+                <div class="skill-card">CSS3</div>
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">Git &amp; GitHub</div>
+                <div class="skill-card">Responsive Design</div>
+            </div>
+
+        </section>
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section class="projects hidden" id="projects">
+
+            <h2>My Projects</h2>
+
+            <div class="projects-container">
+
+                <article class="project-card">
+                    <h3>🎯 Goal Tracker</h3>
+                    <p>
+                        A Goal Tracker website built using HTML, CSS and JavaScript.
+                        Users can add and manage their daily goals easily.
+                    </p>
+                    <a href="index.html" class="project-btn">View Project</a>
+                </article>
+
+                <article class="project-card">
+                    <h3>🌐 Personal Portfolio</h3>
+                    <p>
+                        A responsive portfolio website showcasing my skills,
+                        projects and contact information.
+                    </p>
+                    <a href="#" class="project-btn">View Project</a>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ================= CONTACT ================= -->
+
+        <section class="contact hidden" id="contact">
+
+            <h2>Contact Me</h2>
+
+            <div class="contact-info">
 
                 <p>
-
-                    A responsive portfolio website showcasing my skills,
-                    projects and contact information.
-
+                    📧 <strong>Email:</strong>
+                    <a href="mailto:pavithrabhogapurapu@gmail.com">pavithrabhogapurapu@gmail.com</a>
                 </p>
 
-                <a href="#" class="project-btn">View Project</a>
+                <p>
+                    📱 <strong>Phone:</strong>
+                    <a href="tel:+917794929563">+91 7794929563</a>
+                </p>
+
+                <p>
+                    💼 <strong>LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/pavithra-bhogapurapu" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/pavithra-bhogapurapu</a>
+                </p>
+
+                <p>
+                    💻 <strong>GitHub:</strong>
+                    <a href="https://github.com/pavithrabhogapurapu-sketch" target="_blank" rel="noopener noreferrer">github.com/pavithrabhogapurapu-sketch</a>
+                </p>
+
+                <p>
+                    📍 <strong>Location:</strong> Andhra Pradesh, India
+                </p>
 
             </div>
 
-        </div>
+            <form id="contact-form" novalidate>
 
-    </section>
+                <label class="visually-hidden" for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-    <!-- ================= CONTACT ================= -->
+                <label class="visually-hidden" for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-    <section class="contact hidden" id="contact">
+                <label class="visually-hidden" for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
 
-        <h2>Contact Me</h2>
+                <button type="submit" class="send-btn">Send Message 🚀</button>
 
-        <div class="contact-info">
+                <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
 
-            <p>
-                📧 <strong>Email:</strong>
+            </form>
 
-                <a href="mailto:pavithrabhogapurapu@gmail.com">
-                    pavithrabhogapurapu@gmail.com
-                </a>
-            </p>
+        </section>
 
-            <p>
-                📱 <strong>Phone:</strong>
-
-                <a href="tel:+917794929563">
-                    +91 7794929563
-                </a>
-            </p>
-
-            <p>
-                💼 <strong>LinkedIn:</strong>
-
-                <a href="https://www.linkedin.com/in/pavithra-bhogapurapu" target="_blank">
-                    www.linkedin.com/in/pavithra-bhogapurapu
-                </a>
-            </p>
-
-            <p>
-                💻 <strong>GitHub:</strong>
-
-                <a href="https://github.com/pavithrabhogapurapu-sketch" target="_blank">
-                    github.com/pavithrabhogapurapu-sketch
-                </a>
-            </p>
-
-            <p>
-
-                📍 <strong>Location:</strong>
-
-                Andhra Pradesh, India
-
-            </p>
-
-        </div>
-
-<form id="contact-form">
-
-    <input
-        type="text"
-        id="name"
-        placeholder="Your Name"
-        required
-    >
-
-    <input
-        type="email"
-        id="email"
-        placeholder="Your Email"
-        required
-    >
-
-    <textarea
-        id="message"
-        placeholder="Your Message"
-        rows="6"
-        required
-    ></textarea>
-
-    <button type="submit" class="send-btn">
-        Send Message 🚀
-    </button>
-
-</form>
-
-</section>
+    </main>
 
     <!-- ================= FOOTER ================= -->
 
     <footer>
-
         <h3>Bhogapurapu Pavithra</h3>
-
-        <p>
-
-            Aspiring Frontend Developer
-
-        </p>
-
-        <p>
-
-            © 2026 All Rights Reserved.
-
-        </p>
-
-        <p>
-
-            Built with ❤️ using HTML, CSS & JavaScript
-
-        </p>
-
+        <p>Aspiring Frontend Developer</p>
+        <p>© 2026 All Rights Reserved.</p>
+        <p>Built with ❤️ using HTML, CSS &amp; JavaScript</p>
     </footer>
 
     <!-- Project Popup -->
 
-<div id="popup" class="popup">
-
-    <div class="popup-content">
-
-        <h2>🚀 Project Coming Soon!</h2>
-
-        <p>
-            I'm currently completing this project.
-            Please check back later!
-        </p>
-
-        <button id="closePopup">
-            Close
-        </button>
-
+    <div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup-content">
+            <h2 id="popup-title">🚀 Project Coming Soon!</h2>
+            <p>I'm currently completing this project. Please check back later!</p>
+            <button id="closePopup" type="button">Close</button>
+        </div>
     </div>
 
-</div>
-     <button id="topBtn">⬆</button>
+    <button id="topBtn" type="button" aria-label="Back to top">⬆</button>
+
     <script src="portfolio.js"></script>
 
 </body>
