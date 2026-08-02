@@ -37,6 +37,7 @@ nav{
     color:white;
     font-size:28px;
     font-weight:700;
+    flex:1;
 }
 
 nav ul{
@@ -380,19 +381,6 @@ footer p{
 ========================= */
 
 @media (max-width:768px){
-
-    nav{
-        flex-direction:column;
-        padding:15px 20px;
-    }
-
-    nav ul{
-        flex-direction:column;
-        width:100%;
-        gap:15px;
-        margin-top:15px;
-        text-align:center;
-    }
 
     .logo{
         font-size:24px;
@@ -1023,4 +1011,60 @@ section{
 
     transform:translateY(-3px);
 
+}
+/* Hamburger Menu */
+
+.menu-toggle{
+    display:none;
+    font-size:32px;
+    color:white;
+    cursor:pointer;
+    margin-right:15px;
+}
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+/* Mobile */
+
+@media(max-width:768px){
+
+   nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:relative;
+    padding:15px 20px;
+}
+
+    .menu-toggle{
+        display:block;
+    }
+
+   .nav-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+    nav ul{
+        display:none;
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background:#1E293B;
+        flex-direction:column;
+        text-align:center;
+        padding:20px 0;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    nav ul li{
+        margin:15px 0;
+    }
 }
