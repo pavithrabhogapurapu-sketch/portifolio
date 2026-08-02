@@ -1,212 +1,247 @@
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
+document.addEventListener("DOMContentLoaded", function () {
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-// =========================
-// PROJECT POPUP
-// =========================
+    // =========================
+    // HAMBURGER MENU
+    // =========================
 
-const popup = document.getElementById("popup");
+    (function initMobileMenu() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
 
-const closePopup = document.getElementById("closePopup");
+        if (!menuToggle || !navLinks) return;
 
-const projectButtons = document.querySelectorAll(".project-btn");
-
-projectButtons.forEach(function(button){
-
-    button.addEventListener("click", function(event){
-
-        event.preventDefault();
-
-        popup.style.display = "flex";
-
-    });
-
-});
-
-closePopup.addEventListener("click", function(){
-
-    popup.style.display = "none";
-
-});
-// Close popup when clicking outside
-
-popup.addEventListener("click", function(event){
-
-    if(event.target === popup){
-
-        popup.style.display = "none";
-
-    }
-
-});
-// =========================
-// TYPING ANIMATION
-// =========================
-
-// =========================
-// TYPING ANIMATION
-// =========================
-
-const typingText = document.getElementById("typing-text");
-
-const words = [
-    "Aspiring Frontend Developer",
-    "Web Developer",
-    "JavaScript Learner"
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeEffect() {
-
-    const currentWord = words[wordIndex];
-
-    if (!isDeleting) {
-
-        typingText.textContent = currentWord.substring(0, charIndex + 1);
-
-        charIndex++;
-
-        if (charIndex === currentWord.length) {
-
-            isDeleting = true;
-
-            setTimeout(typeEffect, 1500);
-
-            return;
-
+        function openMenu() {
+            navLinks.classList.add("active");
+            menuToggle.setAttribute("aria-expanded", "true");
         }
 
-    } else {
+        function closeMenu() {
+            navLinks.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+        }
 
-        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        function toggleMenu() {
+            const isOpen = navLinks.classList.contains("active");
+            isOpen ? closeMenu() : openMenu();
+        }
 
-        charIndex--;
+        menuToggle.addEventListener("click", toggleMenu);
 
-        if (charIndex === 0) {
+        // Close menu when a nav link is clicked
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+        });
 
-            isDeleting = false;
+        // Close menu when clicking outside of it
+        document.addEventListener("click", function (event) {
+            const clickedInsideNav =
+                navLinks.contains(event.target) || menuToggle.contains(event.target);
 
-            wordIndex++;
+            if (!clickedInsideNav && navLinks.classList.contains("active")) {
+                closeMenu();
+            }
+        });
 
-            if (wordIndex === words.length) {
+        // Close menu with the Escape key
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && navLinks.classList.contains("active")) {
+                closeMenu();
+                menuToggle.focus();
+            }
+        });
 
-                wordIndex = 0;
+        // Reset menu state if the viewport grows back to desktop size
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+    })();
 
+    // =========================
+    // PROJECT POPUP
+    // =========================
+
+    (function initProjectPopup() {
+        const popup = document.getElementById("popup");
+        const closePopupBtn = document.getElementById("closePopup");
+        const projectButtons = document.querySelectorAll(".project-btn");
+
+        if (!popup || !closePopupBtn) return;
+
+        function openPopup(event) {
+            event.preventDefault();
+            popup.style.display = "flex";
+            closePopupBtn.focus();
+        }
+
+        function closePopup() {
+            popup.style.display = "none";
+        }
+
+        projectButtons.forEach(function (button) {
+            button.addEventListener("click", openPopup);
+        });
+
+        closePopupBtn.addEventListener("click", closePopup);
+
+        // Close popup when clicking the overlay (outside the content box)
+        popup.addEventListener("click", function (event) {
+            if (event.target === popup) {
+                closePopup();
+            }
+        });
+
+        // Close popup with the Escape key
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && popup.style.display === "flex") {
+                closePopup();
+            }
+        });
+    })();
+
+    // =========================
+    // TYPING ANIMATION
+    // =========================
+
+    (function initTypingEffect() {
+        const typingText = document.getElementById("typing-text");
+        if (!typingText) return;
+
+        const words = [
+            "Aspiring Frontend Developer",
+            "Web Developer",
+            "JavaScript Learner"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (!isDeleting) {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1500);
+                    return;
+                }
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
             }
 
+            setTimeout(typeEffect, isDeleting ? 60 : 100);
         }
 
-    }
+        typeEffect();
+    })();
 
-    setTimeout(typeEffect, isDeleting ? 60 : 100);
+    // =========================
+    // DARK MODE
+    // =========================
 
-}
+    (function initThemeToggle() {
+        const themeToggle = document.getElementById("theme-toggle");
+        if (!themeToggle) return;
 
-typeEffect();
-
-// =========================
-// DARK MODE
-// =========================
-
-// =========================
-// DARK MODE
-// =========================
-
-const themeToggle = document.getElementById("theme-toggle");
-
-// Load saved theme
-if(localStorage.getItem("theme") === "dark"){
-
-    document.body.classList.add("dark-mode");
-
-    themeToggle.textContent = "☀️";
-
-}
-
-themeToggle.addEventListener("click", function(){
-
-    document.body.classList.toggle("dark-mode");
-
-    if(document.body.classList.contains("dark-mode")){
-
-        localStorage.setItem("theme","dark");
-
-        themeToggle.textContent = "☀️";
-
-    }
-
-    else{
-
-        localStorage.setItem("theme","light");
-
-        themeToggle.textContent = "🌙";
-
-    }
-
-});
-// =========================
-// BACK TO TOP BUTTON
-// =========================
-
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", function(){
-
-    if(window.scrollY > 300){
-
-        topBtn.style.display = "block";
-
-    }
-
-    else{
-
-        topBtn.style.display = "none";
-
-    }
-
-});
-topBtn.addEventListener("click", function(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-});
-
-// =========================
-// SCROLL REVEAL
-// =========================
-
-const hiddenElements = document.querySelectorAll(".hidden");
-
-window.addEventListener("scroll", revealSections);
-
-revealSections();
-
-function revealSections(){
-
-    hiddenElements.forEach(function(element){
-
-        const elementTop = element.getBoundingClientRect().top;
-
-        const windowHeight = window.innerHeight;
-
-        if(elementTop < windowHeight - 100){
-
-            element.classList.add("show");
-
+        function applyTheme(theme) {
+            const isDark = theme === "dark";
+            document.body.classList.toggle("dark-mode", isDark);
+            themeToggle.textContent = isDark ? "☀️" : "🌙";
+            themeToggle.setAttribute("aria-pressed", String(isDark));
         }
 
-    });
+        // Load saved theme (defaults to light)
+        const savedTheme = localStorage.getItem("theme") || "light";
+        applyTheme(savedTheme);
 
-}
+        themeToggle.addEventListener("click", function () {
+            const nextTheme = document.body.classList.contains("dark-mode") ? "light" : "dark";
+            applyTheme(nextTheme);
+            localStorage.setItem("theme", nextTheme);
+        });
+    })();
+
+    // =========================
+    // BACK TO TOP BUTTON
+    // =========================
+
+    (function initBackToTop() {
+        const topBtn = document.getElementById("topBtn");
+        if (!topBtn) return;
+
+        function toggleVisibility() {
+            topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+        }
+
+        window.addEventListener("scroll", toggleVisibility);
+        toggleVisibility();
+
+        topBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    })();
+
+    // =========================
+    // SCROLL REVEAL
+    // =========================
+
+    (function initScrollReveal() {
+        const hiddenElements = document.querySelectorAll(".hidden");
+        if (!hiddenElements.length) return;
+
+        function revealSections() {
+            const windowHeight = window.innerHeight;
+
+            hiddenElements.forEach(function (element) {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealSections);
+        revealSections();
+    })();
+
+    // =========================
+    // CONTACT FORM
+    // =========================
+
+    (function initContactForm() {
+        const form = document.getElementById("contact-form");
+        const status = document.getElementById("form-status");
+        if (!form) return;
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!form.checkValidity()) {
+                if (status) {
+                    status.textContent = "Please fill in all fields with a valid email address.";
+                }
+                return;
+            }
+
+            // No backend is connected yet, so we confirm receipt locally.
+            if (status) {
+                status.textContent = "Thanks for reaching out! I'll get back to you soon.";
+            }
+
+            form.reset();
+        });
+    })();
+
+});
