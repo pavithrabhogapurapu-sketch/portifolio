@@ -376,32 +376,42 @@ footer p{
     color:#CBD5E1;
 }
 /* =========================
-   MOBILE RESPONSIVE
+   TABLETS & MOBILE
 ========================= */
 
 @media (max-width:768px){
 
     nav{
         flex-direction:column;
-        padding:20px;
+        padding:15px 20px;
     }
 
     nav ul{
         flex-direction:column;
+        width:100%;
         gap:15px;
         margin-top:15px;
         text-align:center;
     }
 
+    .logo{
+        font-size:24px;
+    }
+
     .hero{
         flex-direction:column-reverse;
         text-align:center;
+        gap:30px;
         padding:50px 20px;
-        gap:40px;
+    }
+
+    .hero-text,
+    .hero-image{
+        width:100%;
     }
 
     .hero h1{
-        font-size:38px;
+        font-size:42px;
     }
 
     .hero h2{
@@ -409,18 +419,26 @@ footer p{
     }
 
     .hero p{
+        max-width:100%;
         font-size:16px;
-        margin:auto;
+        line-height:1.7;
     }
 
     .hero-buttons{
         justify-content:center;
         flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .hire-btn,
+    .resume-btn{
+        width:220px;
+        text-align:center;
     }
 
     .hero-image img{
-        width:220px;
-        height:220px;
+        width:240px;
+        height:240px;
     }
 
     .about,
@@ -430,13 +448,111 @@ footer p{
         padding:60px 20px;
     }
 
+    .about h2,
+    .skills h2,
+    .projects h2,
+    .contact h2{
+        font-size:34px;
+    }
+
+    .skills-container,
+    .projects-container{
+        gap:20px;
+    }
+
     .project-card{
         width:100%;
+        max-width:450px;
     }
 
     .contact-info{
         width:100%;
         padding:20px;
+    }
+
+    footer{
+        padding:30px 15px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width:480px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    nav{
+        padding:12px;
+    }
+
+    .hero{
+        padding:40px 15px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .hero h3{
+        font-size:18px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .hero-image img{
+        width:180px;
+        height:180px;
+    }
+
+    .hire-btn,
+    .resume-btn{
+        width:100%;
+        padding:14px;
+    }
+
+    .skill-card{
+        width:100%;
+        font-size:18px;
+        padding:16px;
+    }
+
+    .project-card{
+        width:100%;
+        padding:20px;
+    }
+
+    .project-btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .contact-info p{
+        font-size:16px;
+        word-break:break-word;
+    }
+
+    #contact-form input,
+    #contact-form textarea,
+    .send-btn{
+        font-size:16px;
+    }
+
+    #topBtn{
+        width:45px;
+        height:45px;
+        right:15px;
+        bottom:20px;
     }
 }
 /* Smooth Animations */
